@@ -34,5 +34,5 @@ vertx:
       port: 5432
       user: ${datasources.default.username}
       password: ${datasources.default.password}
-      database: "postgres"
+      database: postgres
       maxSize: 5
