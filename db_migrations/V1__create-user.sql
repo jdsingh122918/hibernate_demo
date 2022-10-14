@@ -1,3 +1,4 @@
+create sequence "app_user_seq" start with 1;
 create table app_user
 (
     id         bigserial primary key not null,

@@ -1,7 +1,16 @@
 version: "3.9"
 services:
+  flyway:
+    image: flyway/flyway
+    command: -configFiles=/flyway/conf/flyway.config -locations=filesystem:/flyway/sql -connectRetries=60 migrate
+    volumes:
+      - ${PWD}/db_migrations:/flyway/sql
+      - ${PWD}/docker-flyway.config:/flyway/conf/flyway.config
+    depends_on:
+      - db
   db:
     image: postgres
+    restart: always
     environment:
       - POSTGRES_USER=voltron
       - POSTGRES_PASSWORD=password

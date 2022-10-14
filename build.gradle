@@ -27,7 +27,7 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
     implementation("org.postgresql:postgresql")
     implementation("com.ongres.scram:client:2.1")
-    implementation("io.micronaut.flyway:micronaut-flyway")
+    implementation("io.netty:netty-all:4.1.84.Final")
 
 }
 

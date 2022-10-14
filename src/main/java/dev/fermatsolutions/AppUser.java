@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "app_user")
@@ -15,7 +17,6 @@ import javax.validation.constraints.NotNull;
 public class AppUser {
 
     @Id
-    @SequenceGenerator(name = "app_user_seq", sequenceName = "app_user_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "app_user_seq")
     private Long id;
 

@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
 
 @Introspected
 public record AppUserSaveCommand(@NotNull String firstName,
-                                 @Nullable String lastName) {
+                                 @Nullable String lastName,
+                                 @NotNull String zipcode,
+                                 @Nullable String city) {
 
 }
