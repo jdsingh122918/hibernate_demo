@@ -45,6 +45,9 @@ graalvmNative.toolchainDetection = false
 micronaut {
     runtime("netty")
     testRuntime("junit5")
+    testResources {
+        enabled = false
+    }
     processing {
         incremental(true)
         annotations("dev.fermatsolutions.*")

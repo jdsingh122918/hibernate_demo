@@ -5,7 +5,6 @@ import io.micronaut.context.annotation.Requires;
 import io.micronaut.context.event.StartupEvent;
 import io.micronaut.runtime.event.annotation.EventListener;
 import io.micronaut.scheduling.annotation.Async;
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.Location;

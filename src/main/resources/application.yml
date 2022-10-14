@@ -4,6 +4,9 @@ micronaut:
 datasources:
   default:
     db-type: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: voltron
+    password: password
 netty:
   default:
     allocator:
@@ -24,3 +27,12 @@ flyway:
   datasources:
     default:
       enabled: false
+vertx:
+  pg:
+    client:
+      host: localhost
+      port: 5432
+      user: ${datasources.default.username}
+      password: ${datasources.default.password}
+      database: "postgres"
+      maxSize: 5
