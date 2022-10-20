@@ -1,10 +1,10 @@
 package dev.fermatsolutions;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -26,4 +26,8 @@ public class AppUser {
 
     @Column(name = "last_name")
     private String lastName;
+
+    @OneToMany(mappedBy = "appUser")
+    @JsonIgnore
+    private Set<Address> addresses;
 }

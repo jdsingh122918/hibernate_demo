@@ -6,3 +6,4 @@ create table address
     city        varchar(255),
     app_user_id bigint references app_user (id)
 );
+

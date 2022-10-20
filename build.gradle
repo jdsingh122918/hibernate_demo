@@ -28,6 +28,7 @@ dependencies {
     implementation("org.postgresql:postgresql")
     implementation("com.ongres.scram:client:2.1")
     implementation("io.netty:netty-all:4.1.84.Final")
+    implementation("org.flywaydb:flyway-core:9.4.0")
 
 }
 
@@ -45,7 +46,7 @@ micronaut {
     runtime("netty")
     testRuntime("junit5")
     testResources {
-        enabled = false
+        enabled = true
     }
     processing {
         incremental(true)

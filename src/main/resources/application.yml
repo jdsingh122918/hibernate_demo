@@ -1,33 +1,7 @@
 micronaut:
   application:
     name: hibernateDemo
-datasources:
-  default:
-#     db-type: postgres
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: voltron
-    password: password
 netty:
   default:
     allocator:
       max-order: 3
-jpa:
-  default:
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: none
-        connection:
-          url: ${datasources.default.url}
-          username: ${datasources.default.username}
-          password: ${datasources.default.password}
-    reactive: true
-# vertx:
-#   pg:
-#     client:
-#       host: localhost
-#       port: 5432
-#       user: ${datasources.default.username}
-#       password: ${datasources.default.password}
-#       database: "postgres"
-#       maxSize: 5

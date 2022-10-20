@@ -1,21 +1,27 @@
 package dev.fermatsolutions;
 
-import io.micronaut.runtime.EmbeddedApplication;
-import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
+import io.micronaut.http.HttpRequest;
+import io.micronaut.http.client.HttpClient;
+import io.micronaut.http.client.annotation.Client;
+import io.micronaut.http.client.exceptions.HttpClientResponseException;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 
 import jakarta.inject.Inject;
 
-@MicronautTest
-class HibernateDemoTest {
+import static io.micronaut.http.HttpStatus.NOT_FOUND;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HibernateDemoTest extends BaseDatabaseTest {
 
     @Inject
-    EmbeddedApplication<?> application;
+    @Client("/")
+    HttpClient httpClient;
 
     @Test
-    void testItWorks() {
-        Assertions.assertTrue(application.isRunning());
+    void testFindNonExistingUserReturns404() {
+        HttpClientResponseException thrown = assertThrows(HttpClientResponseException.class, () ->
+                httpClient.toBlocking().exchange(HttpRequest.GET("/users/1")));
+        assertNotNull(thrown.getResponse());
+        assertEquals(NOT_FOUND, thrown.getStatus());
     }
-
 }

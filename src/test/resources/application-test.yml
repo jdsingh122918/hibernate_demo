@@ -1,0 +1,14 @@
+datasources:
+  default:
+    db-type: postgres
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        connection:
+          url: ${datasources.default.url}
+          username: ${datasources.default.username}
+          password: ${datasources.default.password}
+    reactive: true

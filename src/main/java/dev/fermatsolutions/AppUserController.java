@@ -9,8 +9,6 @@ import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.Collection;
-import java.util.Collections;
 
 @Controller("/users")
 @AllArgsConstructor
@@ -25,7 +23,7 @@ public class AppUserController {
     }
 
     @Post
-    Mono<HttpResponse<AppUser>> save(@Body @Valid AppUserSaveCommand command) {
+    Mono<HttpResponse<AppUser>> save(@Body @Valid AppUserSaveCommand command)   {
         val savedUser = AppUser.builder()
                 .firstName(command.firstName())
                 .lastName(command.lastName())
@@ -41,5 +39,6 @@ public class AppUserController {
                         .<AppUser>noContent()
                         .header(HttpHeaders.LOCATION, URI.create("/users/" + address.getId()).getPath()));
     }
+
 
 }
